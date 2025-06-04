@@ -1,0 +1,31 @@
+.list-view {
+  -fx-background-color: #171e21;
+}
+
+.list-view .list-cell {
+  -fx-background-color: #171e21;
+  -fx-text-fill: white;
+}
+
+.list-view .list-cell .text {
+  -fx-fill: white;
+  -fx-text-fill: white;
+}
+
+.list-view .list-cell:filled:selected,
+.list-view .list-cell:filled:selected:focused {
+  -fx-background-color: #2a2f33;
+  -fx-text-fill: white;
+}
+
+.list-view .scroll-bar:vertical {
+  -fx-opacity: 0;
+  -fx-pref-width: 0;
+  -fx-max-width: 0;
+}
+
+.list-view .scroll-bar:horizontal {
+  -fx-opacity: 0;
+  -fx-pref-height: 0;
+  -fx-max-height: 0;
+}

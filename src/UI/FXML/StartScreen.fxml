@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.StartScreenController">
+   <children>
+      <AnchorPane layoutY="20.0" prefHeight="499.0" prefWidth="195.0" style="-fx-background-color: #1E2528;">
+         <children>
+            <ImageView fx:id="bigMenuIcon" fitHeight="87.0" fitWidth="87.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="124.0" layoutY="26.0" prefHeight="28.0" prefWidth="52.0" text="Arduino " textFill="WHITE" />
+            <Label layoutX="124.0" layoutY="46.0" prefHeight="28.0" prefWidth="52.0" text="Python" textFill="WHITE" />
+            <Label layoutX="124.0" layoutY="67.0" prefHeight="28.0" prefWidth="52.0" text="IDE" textFill="WHITE" />
+            <Line endX="-148.66664123535156" endY="28.66661834716797" layoutX="321.0" layoutY="87.0" startX="-298.0" startY="28.66661834716797" stroke="#424548" />
+            <Button fx:id="username" layoutX="37.0" layoutY="127.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: #05803a; -fx-border-color: #5A5C5D;" text="Log In" textFill="WHITE" />
+            <ImageView fx:id="Profile" fitHeight="111.0" fitWidth="111.0" layoutX="45.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" layoutX="37.0" layoutY="279.0" prefHeight="17.0" prefWidth="127.0" text="Project Amount:" textFill="WHITE" />
+            <Label fx:id="ProjectAmount" alignment="CENTER" layoutX="37.0" layoutY="296.0" prefHeight="17.0" prefWidth="127.0" textFill="WHITE" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="195.0" layoutY="20.0" prefHeight="499.0" prefWidth="555.0" style="-fx-background-color: #171E21;">
+         <children>
+            <ListView fx:id="projects" layoutY="71.0" prefHeight="428.0" prefWidth="555.0" style="-fx-background-color: #171E21;" />
+            <Line endX="426.33331298828125" endY="-7.62939453125E-6" layoutX="114.0" layoutY="63.0" startX="-100.0" stroke="#424548" />
+            <Button fx:id="NewButton" alignment="CENTER" layoutX="446.0" layoutY="21.0" mnemonicParsing="false" onAction="#NewProject" prefHeight="18.0" prefWidth="87.0" style="-fx-background-color: #05803a; -fx-border-color: #5A5C5D;" text="New" textFill="WHITE" />
+            <Button fx:id="OpenJPY" alignment="CENTER" layoutX="347.0" layoutY="21.0" mnemonicParsing="false" onAction="#OpenJPY" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #4C5052; -fx-border-color: #5A5C5D;" text="Open JPY" textFill="WHITE" />
+            <Button fx:id="OpenFolder" alignment="CENTER" layoutX="247.0" layoutY="21.0" mnemonicParsing="false" onAction="#OpenFolder" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #4C5052; -fx-border-color: #5A5C5D;" text="Open Folder" textFill="WHITE" />
+            <TextField fx:id="Search" layoutX="37.0" layoutY="20.0" prefHeight="28.0" prefWidth="195.0" promptText="Search For Projects" style="-fx-background-color: #171E21;" />
+            <Label layoutX="13.0" layoutY="22.0" text="🔍" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane fx:id="titleBar" prefHeight="21.0" prefWidth="750.0" style="-fx-background-color: #1E2528;">
+         <children>
+            <Label layoutX="30.0" layoutY="3.0" prefHeight="20.0" prefWidth="170.0" text="Welcome to Arduino Python IDE" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="menuClose" alignment="CENTER" layoutX="698.0" layoutY="-2.0" mnemonicParsing="false" onAction="#CloseScreen" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: #3C3F41; -fx-shape: rectangle;" text="✕" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button disable="true" layoutX="646.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: #3C3F41; -fx-shape: rectangle;" text="❐" textFill="WHITE" />
+            <Button fx:id="menuMinimize" alignment="CENTER" layoutX="594.0" layoutY="-1.0" mnemonicParsing="false" onAction="#foldScreen" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: #3C3F41; -fx-shape: rectangle;" text="―" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <ImageView fx:id="menuIcon" fitHeight="18.0" fitWidth="18.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

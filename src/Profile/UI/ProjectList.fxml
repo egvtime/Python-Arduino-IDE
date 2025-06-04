@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="292.0" style="-fx-background-color: #171e21;" stylesheets="@/Profile/UI/Profile.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Profile.UI.ProjectListController">
+   <children>
+      <Button alignment="CENTER" layoutX="232.0" layoutY="31.0" mnemonicParsing="false" onAction="#applyFilter" prefHeight="32.0" prefWidth="63.0" style="-fx-background-color: #05803a; -fx-border-color: #05803a;" text="🔍" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="searchField" layoutX="-1.0" layoutY="31.0" prefHeight="31.0" prefWidth="230.0" promptText="Search For Project" style="-fx-background-color: #171e21;" />
+      <ListView fx:id="listView" fixedCellSize="50.0" layoutX="2.0" layoutY="62.0" prefHeight="445.0" prefWidth="292.0" style="-fx-background-color: #171e21; -fx-border-color: #171e21; -fx-text-fill: white;" />
+      <AnchorPane fx:id="titleBar" layoutY="-2.0" prefHeight="31.0" prefWidth="292.0" style="-fx-background-color: #171e21; -fx-border-color: #171e21;">
+         <children>
+            <Button fx:id="menuClose" alignment="CENTER" layoutX="240.0" layoutY="-2.0" mnemonicParsing="false" onAction="#CloseScreen" prefHeight="31.0" prefWidth="52.0" style="-fx-background-color: #1E1F22; -fx-shape: rectangle;" text="✕" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button disable="true" layoutX="188.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="52.0" style="-fx-background-color: #1E1F22; -fx-shape: rectangle;" text="❐" textFill="WHITE" />
+            <Button fx:id="menuMinimize" alignment="CENTER" layoutX="136.0" layoutY="-1.0" mnemonicParsing="false" onAction="#foldScreen" prefHeight="31.0" prefWidth="52.0" style="-fx-background-color: #1E1F22; -fx-shape: rectangle;" text="―" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="32.0" layoutY="9.0" prefHeight="17.0" prefWidth="118.0" text="Project List" textFill="WHITE" />
+            <ImageView fx:id="iconImageView" fitHeight="25.0" fitWidth="25.0" layoutX="2.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

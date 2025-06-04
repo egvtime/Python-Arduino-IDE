@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="424.0" prefWidth="313.0" style="-fx-background-color: #1E1F22;" stylesheets="@/UI/CssStyleScripts/KeyWordsUIStyle.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.KeyWordsController">
+   <TextField fx:id="pythonField" layoutX="85.0" layoutY="53.0" prefWidth="200.0" />
+   <Label layoutX="29.0" layoutY="56.0" text="Python:" textFill="WHITE" />
+   <TextField fx:id="cppField" layoutX="85.0" layoutY="98.0" prefWidth="200.0" />
+   <Label layoutX="29.0" layoutY="101.0" text="C++:" textFill="WHITE" />
+   <Button fx:id="done" layoutX="114.0" layoutY="141.0" onAction="#button" style="-fx-background-color: #05803a;" text="Add KeyWord" textFill="WHITE">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></Button>
+   <Label fx:id="warning" alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="174.0" prefWidth="260.0" textAlignment="CENTER" textFill="red" wrapText="true" />
+   <ListView fx:id="view" layoutY="198.0" prefHeight="225.0" prefWidth="317.0" style="-fx-background-color: #171e21; -fx-border-color: #171e21;" />
+   <AnchorPane fx:id="titleBar" layoutY="1.0" prefHeight="25.0" prefWidth="317.0" style="-fx-background-color: #1E1F22;">
+      <children>
+         <Button fx:id="menuClose" alignment="CENTER" layoutX="263.0" layoutY="-2.0" mnemonicParsing="false" onAction="#CloseScreen" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: #1E1F22; -fx-shape: rectangle;" text="✕" textFill="WHITE">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button disable="true" layoutX="211.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: #1E1F22; -fx-shape: rectangle;" text="❐" textFill="WHITE" />
+         <Button fx:id="menuMinimize" alignment="CENTER" layoutX="159.0" layoutY="-1.0" mnemonicParsing="false" onAction="#foldScreen" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: #1E1F22; -fx-shape: rectangle;" text="―" textFill="WHITE">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </children>
+   </AnchorPane>
+</AnchorPane>

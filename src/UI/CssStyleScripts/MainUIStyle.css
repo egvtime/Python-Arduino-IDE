@@ -1,0 +1,81 @@
+.root-pane {
+    -fx-font-family: 'Yu Gothic Regular';
+}
+
+.title-bar {
+    -fx-background-color: #171e21;
+}
+.title-bar .window-button {
+    -fx-background-color: #3C3F41;
+    -fx-text-fill: white;
+}
+.title-bar .window-button:hover {
+    -fx-background-color: #4b4e51;
+}
+.title-bar .close-button {
+}
+
+.sidebar {
+    -fx-background-color: #171e21;
+}
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.sidebar-button:hover {
+    -fx-background-color: #2a3438;
+}
+
+.menu-bar {
+    -fx-background-color: #171e21;
+}
+.menu-bar .menu-button .text {
+    -fx-fill: white;
+}
+
+.context-menu {
+    -fx-background-color: #171e21;
+}
+.context-menu .menu-item {
+    -fx-background-color: #171e21;
+}
+.context-menu .menu-item .label {
+    -fx-text-fill: white;
+}
+.context-menu .menu-item:hover {
+    -fx-background-color: #2a3438;
+}
+.context-menu .separator {
+    -fx-background-color: #2a3438;
+    -fx-padding: 1px;
+}
+
+.text-area {
+    -fx-control-inner-background: #1f272a;
+    -fx-text-fill: white;
+    -fx-background-color: #1f272a;
+    -fx-border-radius: 0.5;
+    -fx-border-color: #1f272a;
+    -fx-border-width: 0.5;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.text-area .content {
+    -fx-background-color: #1f272a;
+}
+.text-area .scroll-bar {
+    -fx-opacity: 0;
+    -fx-background-color: transparent;
+}
+.text-area .scroll-bar .thumb,
+.text-area .scroll-bar .track {
+    -fx-opacity: 0;
+    -fx-background-color: transparent;
+}
+.save-icon {
+}
+
+.app-icon {
+}
+
+

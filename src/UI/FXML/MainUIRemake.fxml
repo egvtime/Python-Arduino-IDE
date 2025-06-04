@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="526.0" prefWidth="890.0" style="-fx-background-color: #1E2528;" stylesheets="@../CssStyleScripts/MainUIStyle.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.MainUIController">
+    <children>
+      <AnchorPane layoutX="68.0" layoutY="52.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="452.0" prefWidth="822.0" style="-fx-background-color: #1E2528; -fx-border-color: #1E2528;" vbarPolicy="NEVER">
+              <content>
+                <AnchorPane prefHeight="451.0" prefWidth="818.0" style="-fx-background-color: #1E2528; -fx-border-color: #1E2528;">
+                     <children>
+                          <TextArea fx:id="codeArea" layoutX="38.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="771.0" style="-fx-background-color: #1E2528; -fx-border-color: #1E2528;" styleClass="text-area" text="def setup():&#10;&#9;#write your setup code here --&gt;&#10;def loop():&#10;&#9;#write your loop code here --&gt;&#10;&#10;run()">
+                              <font>
+                                  <Font name="Yu Gothic Regular" size="14.0" />
+                              </font>
+                          </TextArea>
+                        <ListView fx:id="lineNumberList" disable="true" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="451.0" prefWidth="50.0" style="-fx-background-color: #1E2528;" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+        <AnchorPane fx:id="titleBar" prefHeight="25.0" prefWidth="890.0" style="-fx-border-color: TRANSPARENT;" styleClass="title-bar">
+            <children>
+                <Label fx:id="Title" layoutX="30.0" layoutY="3.0" prefHeight="20.0" prefWidth="715.0" text="Untitled Sketch    |    Python Arduino IDE" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri Light" size="13.0" />
+                    </font>
+                </Label>
+                <Button fx:id="menuClose" alignment="CENTER" layoutX="835.0" layoutY="-2.0" mnemonicParsing="false" onAction="#Quit" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: TRANSPARENT;" text="✕" textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button disable="true" layoutX="783.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: #171e21;" styleClass="window-button" text="❐" textFill="WHITE" />
+                <Button fx:id="menuMinimize" alignment="CENTER" layoutX="731.0" layoutY="-1.0" mnemonicParsing="false" onAction="#foldScreen" prefHeight="20.0" prefWidth="52.0" style="-fx-background-color: #171e21;" text="―" textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <ImageView fx:id="menuIcon" fitHeight="18.0" fitWidth="18.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" styleClass="app-icon" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="statusBar" layoutY="503.0" prefHeight="24.0" prefWidth="890.0" style="-fx-background-color: #171e21;">
+            <children>
+                <Label fx:id="LeftStatus" layoutX="5.0" layoutY="4.0" text="Position" textFill="WHITE" />
+                <Label fx:id="RightStatus" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="836.0" layoutY="3.0" nodeOrientation="RIGHT_TO_LEFT" text="Lines:" textAlignment="CENTER" textFill="WHITE" />
+                <ImageView fx:id="SaveImage" fitHeight="15.0" fitWidth="15.0" layoutX="810.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="save-icon" />
+            </children>
+        </AnchorPane>
+        <MenuBar fx:id="Menu" layoutY="27.0" prefHeight="25.0" prefWidth="890.0" style="-fx-border-color: TRANSPARENT;" styleClass="menu-bar">
+            <menus>
+                <Menu mnemonicParsing="false" styleClass="menu-button" text="File">
+                    <items>
+                        <MenuItem onAction="#ApplicationLaunch" text="✚ New Sketch" />
+                        <MenuItem onAction="#Open" text="🗒 Open JPY File" />
+                        <MenuItem onAction="#OpenFolder" text="🗁 Open Python Folder" />
+                        <SeparatorMenuItem />
+                        <RadioMenuItem fx:id="Save" onAction="#Save" text="💾 Save" />
+                        <MenuItem onAction="#SaveJPY" text="Save As JPY" />
+                        <MenuItem onAction="#SavePY" text="Save As Python Folder" />
+                        <SeparatorMenuItem />
+                        <MenuItem onAction="#Quit" text="✖ Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" styleClass="menu-button" text="Convert">
+                    <items>
+                        <MenuItem onAction="#Convert" text="⌲ Convert to Ino File" />
+                        <MenuItem onAction="#ConvertWithoutExporting" text="Convert Without Exporting" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" styleClass="menu-button" text="Syntax">
+                    <items>
+                        <MenuItem onAction="#AddKeyWord" text="Manage KeyWords" />
+                        <MenuItem onAction="#AddKeyWordFile" text="Add New KeyWords Through .txt File" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" styleClass="menu-button" text="Error">
+                    <items>
+                        <MenuItem onAction="#OpenErrorList" text="Open Error Screen" />
+                        <MenuItem onAction="#ClearErrorList" text="Clear Error Screen" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" styleClass="menu-button" text="Account">
+                    <items>
+                        <MenuItem onAction="#OpenProfile" text="👤 Open Profile" />
+                        <MenuItem onAction="#OpenList" text="Open User List" />
+                  <MenuItem mnemonicParsing="false" onAction="#OpenProjectList" text="Open Project List" />
+                        <MenuItem onAction="#OpenID" text="Search Profile By ID" />
+                        <MenuItem onAction="#SaveProject" text="Save Project To Profile" />
+                        <MenuItem onAction="#Logout" text="Log Out" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" styleClass="menu-button" text="help">
+                    <items>
+                        <MenuItem onAction="#DownloadPythonFile" text="Download Py Library" />
+                        <MenuItem onAction="#Settings" text="🌣 Settings" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane fx:id="sidebar" layoutY="55.0" prefHeight="448.0" prefWidth="68.0" styleClass="sidebar">
+            <children>
+                <Button fx:id="OpenButton" layoutX="9.0" layoutY="14.0" mnemonicParsing="false" onAction="#OpenFolder" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #1E2528;" styleClass="sidebar-button" text="📁">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button fx:id="ConvertButton" layoutX="9.0" layoutY="72.0" mnemonicParsing="false" onAction="#ConvertWithoutExporting" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #1E2528;" styleClass="sidebar-button" text="⇆">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button fx:id="KeyWordsButton" layoutX="9.0" layoutY="134.0" mnemonicParsing="false" onAction="#AddKeyWord" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #1E2528;" styleClass="sidebar-button" text="🕮">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button fx:id="ProfileButton" alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="387.0" mnemonicParsing="false" onAction="#OpenProfile" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #1E2528;" styleClass="sidebar-button" text="👤" textAlignment="CENTER">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="ShowErrorButton" layoutX="9.0" layoutY="194.0" mnemonicParsing="false" onAction="#ShowErrorButton" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #1E2528;" styleClass="sidebar-button" text="✕">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
