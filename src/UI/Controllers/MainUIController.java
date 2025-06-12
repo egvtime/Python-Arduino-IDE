@@ -10,7 +10,7 @@ import Profile.ProfileControlUI.Login.*;
 import Profile.ProfileControlUI.NewAccount.*;
 import Profile.ProfileControlUI.NewProject.*;
 import Profile.UI.*;
-import PythonTranslator.Converter;
+import Translator.*;
 import Settings.*;
 import Settings.UI.*;
 import java.awt.*;
@@ -458,7 +458,7 @@ public class MainUIController {
         chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Arduino File", "*.ino"));
         File location = chooser.showSaveDialog(stage);
         if (location != null) {
-            Converter converter = new Converter(new File(fileLocation), location.getAbsolutePath());
+            PyConverter converter = new PyConverter(new File(fileLocation), location.getAbsolutePath());
             if (settingsConfiguration != null) {
                 if (settingsConfiguration.getDisplayLibraryCheck()) {
                     converter.setLibraryDisplay(true);
@@ -466,7 +466,7 @@ public class MainUIController {
             }
             try {
                 if (commandMap != null) {
-                    Converter.setCommandMap(commandMap);
+                    PyConverter.setCommandMap(commandMap);
                 }
                 converter.translate();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/FXML/TextFlowUI.fxml"));
@@ -497,7 +497,7 @@ public class MainUIController {
         if (!upToDate) {
             setPythonCode();
         }
-        Converter converter = new Converter(new File(fileLocation));
+        PyConverter converter = new PyConverter(new File(fileLocation));
         if (settingsConfiguration != null) {
             if (settingsConfiguration.getDisplayLibraryCheck()) {
                 converter.setLibraryDisplay(true);
@@ -505,7 +505,7 @@ public class MainUIController {
         }
         try {
             if (commandMap != null) {
-                Converter.setCommandMap(commandMap);
+                PyConverter.setCommandMap(commandMap);
             }
             String ConvertedText = converter.translateWithoutExporting();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/FXML/TextFlowUI.fxml"));
@@ -608,6 +608,27 @@ public class MainUIController {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    @FXML
+    public void OpenINO(ActionEvent event) {
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Open Arduino Code");
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("INO files", "*.ino"));
+        File file = chooser.showOpenDialog(stage);
+        if (file != null && file.exists()) {
+            saved = false;
+            name = file.getName();
+            setTitle(name.replace("ino", "jpy") + "    |    Python Arduino IDE");
+            try {
+                CppConverter converter = new CppConverter(file);
+                converter.Convert();
+                codeArea.setText(converter.getConvertedText());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        UpdateSaveIndicator();
     }
 
     private Vector<String> listAllFiles(String directoryPath) throws IOException {
@@ -1160,7 +1181,17 @@ public class MainUIController {
         CopyClip.setOnAction(e ->{
             CopyConvert();
         });
-        devTools.getItems().add(CopyClip);
+        devTools.getItems().addAll(CopyClip, new SeparatorMenuItem());
+
+        MenuItem ArduinoEditor = new MenuItem("Open Arduino Editor");
+        ArduinoEditor.setOnAction(e ->{
+            try {
+                openArduinoEditor();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        devTools.getItems().add(ArduinoEditor);
 
         Scene scene = Menu.getScene();
         Parent root = scene.getRoot();
@@ -1268,6 +1299,17 @@ public class MainUIController {
         errorAlert.showAndWait();
     }
 
+    private void openArduinoEditor() throws IOException {
+        Stage newStage = new Stage();
+        FXMLLoader loader = new FXMLLoader((getClass().getResource("/DeveloperTools/UI/ArduinoEditor.fxml")));
+        Parent root = loader.load();
+        newStage.setScene(new Scene(root));
+        ArduinoEditorController ctrl = loader.getController();
+        ctrl.initialize(newStage, this);
+        newStage.setResizable(false);
+        newStage.showAndWait();
+    }
+
     private void DeleteUser() throws SQLException, IOException {
         ProfileDAO dao = new ProfileDAO();
 
@@ -1341,7 +1383,7 @@ public class MainUIController {
         if (!upToDate) {
             setPythonCode();
         }
-        Converter converter = new Converter(new File(fileLocation));
+        PyConverter converter = new PyConverter(new File(fileLocation));
         if (settingsConfiguration != null) {
             if (settingsConfiguration.getDisplayLibraryCheck()) {
                 converter.setLibraryDisplay(true);
@@ -1349,7 +1391,7 @@ public class MainUIController {
         }
         try {
             if (commandMap != null) {
-                Converter.setCommandMap(commandMap);
+                PyConverter.setCommandMap(commandMap);
             }
             String ConvertedText = converter.translateWithoutExporting();
             copyToClipboard(ConvertedText);

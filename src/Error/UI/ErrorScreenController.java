@@ -3,7 +3,8 @@ package Error.UI;
 import java.util.Vector;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import Error.ArduinoError;
 
 public class ErrorScreenController {

@@ -82,6 +82,8 @@
                     <items>
                         <MenuItem onAction="#Convert" text="⌲ Convert to Ino File" />
                         <MenuItem onAction="#ConvertWithoutExporting" text="Convert Without Exporting" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#OpenINO" text="Convert Ino File" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" styleClass="menu-button" text="Syntax">

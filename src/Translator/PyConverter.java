@@ -1,9 +1,9 @@
-package PythonTranslator;
+package Translator;
 
 import java.io.*;
 import java.util.*;
 
-public class Converter {
+public class PyConverter {
     private final File py;
     private final String fileLocation;
     private BufferedReader BR;
@@ -19,13 +19,13 @@ public class Converter {
 
     private boolean LibraryDisplay = false;
 
-    public Converter(File PythonFile) {
+    public PyConverter(File PythonFile) {
         this.py = PythonFile;
         fileLocation = "";
         def();
     }
 
-    public Converter(File PythonFile, String fileLocation) {
+    public PyConverter(File PythonFile, String fileLocation) {
         this.py = PythonFile;
         this.fileLocation = fileLocation;
         def();
@@ -75,7 +75,7 @@ public class Converter {
     }
 
     public static void setCommandMap(HashMap<String, String> commandMap) {
-        Converter.commandMap = commandMap;
+        PyConverter.commandMap = commandMap;
     }
 
     public void addCommand(String pyCommand, String arduinoCommand) {
