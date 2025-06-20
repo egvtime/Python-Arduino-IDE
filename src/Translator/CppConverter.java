@@ -61,7 +61,7 @@ public class CppConverter {
     }
 
     public void Convert() throws IOException {
-        if(convertedText.isEmpty()) {
+        if(convertedText == null || convertedText.isEmpty()) {
             convertedText = readFile();
         }
 
